@@ -62,20 +62,26 @@ while p1 and p2:
                 dt2.append(p2.popleft())
     except:
         # if we get an error, it means that oe of the two decks is empty, game is over
+        if not p1:
+            p1 = False
+            p2 = True
+        elif not p2:
+            p1 = True
+            p2= False
         pat = True
-        break
 
     # Adding the cards to the round winner
-    if compare(dt1[-1],dt2[-1]) == 1:
-        while dt1:
-            p1.append(dt1.popleft())
-        while dt2:
-            p1.append(dt2.popleft())
-    else :
-        while dt1:
-            p2.append(dt1.popleft())
-        while dt2:
-            p2.append(dt2.popleft())
+    if not pat:
+        if compare(dt1[-1],dt2[-1]) == 1:
+            while dt1:
+                p1.append(dt1.popleft())
+            while dt2:
+                p1.append(dt2.popleft())
+        else :
+            while dt1:
+                p2.append(dt1.popleft())
+            while dt2:
+                p2.append(dt2.popleft())
 
 
 if pat:
