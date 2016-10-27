@@ -62,12 +62,6 @@ while p1 and p2:
                 dt2.append(p2.popleft())
     except:
         # if we get an error, it means that oe of the two decks is empty, game is over
-        if not p1:
-            p1 = False
-            p2 = True
-        elif not p2:
-            p1 = True
-            p2= False
         pat = True
 
     # Adding the cards to the round winner
